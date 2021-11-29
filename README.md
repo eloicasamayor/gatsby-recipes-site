@@ -1,3 +1,5 @@
+<p>Static site made with Gastby following <a href="https://www.youtube.com/watch?v=RaTpreA0v7Q&list=WL&index=32&t=1807s">this great tutorial</a>
+</p>
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.com">
