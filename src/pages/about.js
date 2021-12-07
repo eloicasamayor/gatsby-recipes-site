@@ -1,15 +1,20 @@
 import React from "react"
 import Layout from "../components/Layout"
 import { StaticImage } from "gatsby-plugin-image"
-import { Link } from "gatsby"
+import { Link, graphql } from "gatsby"
+import RecipesList from "../components/RecipesList"
 
-const About = () => {
+const About = ({
+  data: {
+    allContentfulGatsbyTutorial: { nodes: recipes },
+  },
+}) => {
   return (
     <Layout>
       <main className="page">
         <section className="about-page">
           <article>
-            <h2>readymade, heirloom squid street art normcore VHS palo</h2>
+            <h2>street art normcore palo</h2>
             <p>
               Biodiesel truffaut raw denim hexagon wolf single-origin coffee
               mlkshk mumblecore pork belly paleo. Gastropub prism ramps
@@ -17,8 +22,7 @@ const About = () => {
             </p>
             <p>
               Litz tofu dreamcatcher. Beard squid man braid celiac synth
-              bushwick 90's marfa butcher narwhal. Waistcoat vice put a bird on
-              it, selfies microdosing prism.
+              bushwick 90's marfa butcher narwhal.
             </p>
             <Link to="/contact" className="btn">
               contact
@@ -30,12 +34,35 @@ const About = () => {
               alt="Person Pouring Salt in Bawl"
               className="about-img"
               placeholder="blurred"
+              aspectRatio={10 / 7}
             />
           </article>
+        </section>
+        <section className="featured-recipes">
+          <h5>Look at this Awesome sause</h5>
+          <RecipesList recipes={recipes} />
         </section>
       </main>
     </Layout>
   )
 }
-
+export const query = graphql`
+  {
+    allContentfulGatsbyTutorial(
+      sort: { fields: title, order: ASC }
+      filter: { featured: { eq: true } }
+    ) {
+      nodes {
+        title
+        cookTime
+        prepTime
+        servings
+        id
+        image {
+          gatsbyImageData(placeholder: BLURRED, layout: CONSTRAINED)
+        }
+      }
+    }
+  }
+`
 export default About
