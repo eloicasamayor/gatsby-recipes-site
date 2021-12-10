@@ -13,7 +13,7 @@ const TagsList = ({ recipes }) => {
           const [text, value] = tag
           return (
             <Link to={`/${text}`} key={index}>
-              {tag} ({value})
+              {text} ({value})
             </Link>
           )
         })}
