@@ -2,4 +2,5 @@
 
 <p>Static site made with Gastby following <a href="https://www.youtube.com/watch?v=RaTpreA0v7Q&list=WL&index=32&t=1807s">this great tutorial</a>
 </p>
-[Link to the deployed site](https://eloi-gatsby-tutorial.netlify.app/)
+<p>
+<a href="https://eloi-gatsby-tutorial.netlify.app/">Link to the deployed site</a></p>
